@@ -8147,7 +8147,7 @@ var connection_Connection = (function (_super) {
             this.transport.ping();
         }
         else {
-            this.send_event('pusher:ping', {});
+            this.send_event('pusher:ping', { api_key: process.env['ASPEN_NETWORK_KEY'] });
         }
     };
     Connection.prototype.close = function () {
@@ -8177,7 +8177,7 @@ var connection_Connection = (function (_super) {
                                 data: pusherEvent.data
                             });
                             break;
-                        case 'pusher:ping':
+                      case 'pusher:ping':
                             _this.emit('ping');
                             break;
                         case 'pusher:pong':
@@ -8566,7 +8566,8 @@ var channel_Channel = (function (_super) {
                 _this.pusher.send_event('pusher:subscribe', {
                     auth: data.auth,
                     channel_data: data.channel_data,
-                    channel: _this.name
+                    channel: _this.name,
+                    api_key: process.env['ASPEN_NETWORK_KEY']
                 });
             }
         });
