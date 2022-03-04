@@ -8147,7 +8147,7 @@ var connection_Connection = (function (_super) {
             this.transport.ping();
         }
         else {
-            this.send_event('pusher:ping', { api_key: process.env['ASPEN_NETWORK_KEY'] });
+            this.send_event('pusher:ping', { api_key: process.env['ASPEN_API_KEY'], network_key: process.env['ASPEN_NETWORK_KEY'] });
         }
     };
     Connection.prototype.close = function () {
@@ -8567,7 +8567,8 @@ var channel_Channel = (function (_super) {
                     auth: data.auth,
                     channel_data: data.channel_data,
                     channel: _this.name,
-                    api_key: process.env['ASPEN_API_KEY']
+                    api_key: process.env['ASPEN_API_KEY'],
+                    network_key: process.env['ASPEN_NETWORK_KEY']
                 });
             }
         });
