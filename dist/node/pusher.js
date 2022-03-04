@@ -8567,7 +8567,7 @@ var channel_Channel = (function (_super) {
                     auth: data.auth,
                     channel_data: data.channel_data,
                     channel: _this.name,
-                    api_key: process.env['ASPEN_NETWORK_KEY']
+                    api_key: process.env['ASPEN_API_KEY']
                 });
             }
         });
